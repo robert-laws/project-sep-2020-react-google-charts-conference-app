@@ -1,49 +1,32 @@
 import React from 'react';
-import './App.css';
+import './App.scss';
+import { BrowserRouter as Router, Switch, Route } from 'react-router-dom';
+import {
+  Home,
+  ServiceDesk,
+  Instruction,
+  AlmaCollections,
+  AlmaLoans,
+} from './pages';
+import { Header, Footer } from './layout';
 
 function App() {
   return (
-    <div classNameName='App'>
-      <nav>
-        <div className='nav-wrapper'>
-          <a href='/' className='brand-logo'>
-            Logo
-          </a>
-          <a href='#' data-target='mobile-demo' className='sidenav-trigger'>
-            <i className='material-icons'>menu</i>
-          </a>
-          <ul className='right hide-on-med-and-down'>
-            <li>
-              <a href='sass.html'>Sass</a>
-            </li>
-            <li>
-              <a href='badges.html'>Components</a>
-            </li>
-            <li>
-              <a href='collapsible.html'>Javascript</a>
-            </li>
-            <li>
-              <a href='mobile.html'>Mobile</a>
-            </li>
-          </ul>
-        </div>
-      </nav>
-
-      <ul className='sidenav' id='mobile-demo'>
-        <li>
-          <a href='sass.html'>Sass</a>
-        </li>
-        <li>
-          <a href='badges.html'>Components</a>
-        </li>
-        <li>
-          <a href='collapsible.html'>Javascript</a>
-        </li>
-        <li>
-          <a href='mobile.html'>Mobile</a>
-        </li>
-      </ul>
-    </div>
+    <Router>
+      <div className='App'>
+        <Header />
+        <main>
+          <Switch>
+            <Route exact path='/' component={Home} />
+            <Route path='/instruction' component={Instruction} />
+            <Route path='/service' component={ServiceDesk} />
+            <Route path='/collections' component={AlmaCollections} />
+            <Route path='/loans' component={AlmaLoans} />
+          </Switch>
+        </main>
+        <Footer />
+      </div>
+    </Router>
   );
 }
 

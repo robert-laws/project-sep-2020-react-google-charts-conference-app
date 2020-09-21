@@ -1,0 +1,31 @@
+.active {
+  background-color: rgba(0, 0, 0, 0.1);
+}
+
+.App {
+  display: flex;
+  flex-direction: column;
+  height: 100vh;
+  width: 100vw;
+
+  header {
+    flex: 0;
+
+    .brand-logo {
+      margin-left: 20px;
+    }
+
+    #top-navigation {
+      margin-right: 20px;
+    }
+  }
+
+  main {
+    flex: 1;
+    margin-top: 40px;
+  }
+
+  footer {
+    flex: 0;
+  }
+}
