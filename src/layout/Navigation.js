@@ -3,7 +3,7 @@ import { Link, NavLink } from 'react-router-dom';
 
 export const Navigation = () => {
   return (
-    <nav>
+    <nav className='blue darken-2'>
       <div className='nav-wrapper'>
         <Link className='brand-logo' to='/'>
           Data Dashboard

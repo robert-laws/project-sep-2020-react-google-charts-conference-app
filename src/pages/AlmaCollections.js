@@ -1,5 +1,5 @@
 import React from 'react';
 
 export const AlmaCollections = () => {
-  return <div>alma - collections</div>;
+  return <div className='container'>alma - collections</div>;
 };

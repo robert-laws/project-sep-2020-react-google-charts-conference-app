@@ -15,7 +15,7 @@ function App() {
     <Router>
       <div className='App'>
         <Header />
-        <main>
+        <main className='grey lighten-5'>
           <Switch>
             <Route exact path='/' component={Home} />
             <Route path='/instruction' component={Instruction} />
