@@ -1,4 +1,8 @@
-import { GET_ALL_SERVICE_DATA, FILTER_SERVICE_DATA } from '../types';
+import {
+  GET_ALL_SERVICE_DATA,
+  FILTER_SERVICE_DATA,
+  RESET_SERVICE,
+} from '../types';
 
 export default (state, action) => {
   switch (action.type) {
@@ -15,6 +19,12 @@ export default (state, action) => {
         filteredServiceData: state.serviceData.filter(
           (data) => data[action.payload.field] === action.payload.selection
         ),
+      };
+
+    case RESET_SERVICE:
+      return {
+        ...state,
+        filteredServiceData: state.serviceData,
       };
 
     default:

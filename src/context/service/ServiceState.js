@@ -1,10 +1,12 @@
 import React, { useReducer, useCallback } from 'react';
 import ServiceContext from './serviceContext';
 import serviceReducer from './serviceReducer';
-import { GET_ALL_SERVICE_DATA, FILTER_SERVICE_DATA } from '../types';
+import {
+  GET_ALL_SERVICE_DATA,
+  FILTER_SERVICE_DATA,
+  RESET_SERVICE,
+} from '../types';
 import Tabletop from 'tabletop';
-
-// https://docs.google.com/spreadsheets/d/1XaaKHwXzAmr4VORHLp8cAL58ehoh4OkOr5qZQc0eD4U
 
 const ServiceState = ({ children }) => {
   const initialState = {
@@ -38,6 +40,10 @@ const ServiceState = ({ children }) => {
     [dispatch]
   );
 
+  const resetService = useCallback(() => {
+    dispatch({ type: RESET_SERVICE });
+  }, [dispatch]);
+
   return (
     <ServiceContext.Provider
       value={{
@@ -45,6 +51,7 @@ const ServiceState = ({ children }) => {
         filteredServiceData: state.filteredServiceData,
         getAllServiceData,
         filterServiceData,
+        resetService,
       }}
     >
       {children}

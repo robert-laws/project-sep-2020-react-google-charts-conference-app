@@ -1,4 +1,5 @@
-import React from 'react';
+import React, { useContext, useEffect, useState } from 'react';
+import ServiceContext from './context/service/serviceContext';
 import './App.scss';
 import { BrowserRouter as Router, Switch, Route } from 'react-router-dom';
 import {
@@ -11,13 +12,30 @@ import {
 import { Header, Footer } from './layout';
 
 function App() {
+  const serviceContext = useContext(ServiceContext);
+  const { serviceData, getAllServiceData } = serviceContext;
+
+  const [serviceDeskTotal, setServiceDeskTotal] = useState(0);
+
+  useEffect(() => {
+    getAllServiceData();
+  }, [getAllServiceData]);
+
+  useEffect(() => {
+    if (serviceData.length > 0) {
+      setServiceDeskTotal(serviceData.length);
+    }
+  }, [serviceData]);
+
   return (
     <Router>
       <div className='App'>
         <Header />
         <main className='grey lighten-5'>
           <Switch>
-            <Route exact path='/' component={Home} />
+            <Route exact path='/'>
+              <Home serviceDeskTotal={serviceDeskTotal} />
+            </Route>
             <Route path='/instruction' component={Instruction} />
             <Route path='/service' component={ServiceDesk} />
             <Route path='/collections' component={AlmaCollections} />
