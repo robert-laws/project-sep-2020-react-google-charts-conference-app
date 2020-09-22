@@ -6,7 +6,7 @@ export const Navigation = () => {
     <nav className='blue darken-2'>
       <div className='nav-wrapper'>
         <Link className='brand-logo' to='/'>
-          Data Dashboard
+          GU-Q Library - Data Dashboard
         </Link>
         <a href='#' data-target='mobile-demo' className='sidenav-trigger'>
           <i className='material-icons'>menu</i>

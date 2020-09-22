@@ -97,8 +97,6 @@ function App() {
     return newData;
   };
 
-  console.log(almaLoansData);
-
   return (
     <Router>
       <div className='App'>
@@ -109,6 +107,8 @@ function App() {
               <Home
                 serviceDeskTotal={serviceDeskTotal}
                 instructionTotal={instructionTotal}
+                collectionsData={almaCollectionsDataSet}
+                loansData={almaLoansDataSet}
               />
             </Route>
             <Route path='/instruction' component={Instruction} />
